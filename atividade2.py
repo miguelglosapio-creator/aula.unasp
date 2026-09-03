@@ -12,23 +12,37 @@ lista = [
 
 item = int(input("Digite um número para pesquisar na lista: "))
 
-def pesquisa_binaria(lista, item):
-    baixo = 0
-    alto = len(lista) - 1
+# def pesquisa_binaria(lista, item):
+#     baixo = 0
+#     alto = len(lista) - 1
+#     tentativas = 0
+#     while baixo <= alto:
+#         meio = (baixo + alto) // 2
+#         chute = lista[meio][0]  
+#         tentativas += 1
+#         if chute == item:
+#             return meio, tentativas
+#         if chute > item:
+#             alto = meio - 1
+#         else:
+#             baixo = meio + 1
+#     return None
+
+# resultado = pesquisa_binaria(lista, item)
+# if resultado is not None:
+#     print(f"Nome: {lista[resultado[0]][1]}")
+#     print(f"Tentativas: {resultado[1]}")
+
+
+def nome_sequencial(lista, item):
     tentativas = 0
-    while baixo <= alto:
-        meio = (baixo + alto) // 2
-        chute = lista[meio][0]  
+
+    for i in range(len(lista)):
         tentativas += 1
-        if chute == item:
-            return meio, tentativas
-        if chute > item:
-            alto = meio - 1
-        else:
-            baixo = meio + 1
+        if lista[i][0] == item:            return i, tentativas
     return None
 
-resultado = pesquisa_binaria(lista, item)
-if resultado is not None:
-    print(f"Nome: {lista[resultado[0]][1]}")
-    print(f"Tentativas: {resultado[1]}")
+resultado_sequencial = nome_sequencial(lista, item)
+if resultado_sequencial is not None:
+    print(f"Nome: {lista[resultado_sequencial[0]][1]}")   
+    print(f"Tentativas: {resultado_sequencial[1]}")
